@@ -1,1 +1,3 @@
 devel-env/
+__pycache__/
+param_koneksi.db
