@@ -1,3 +1,6 @@
-devel-env/
 __pycache__/
-param_koneksi.db
+.git/
+.pyc
+devel-env/
+.qt_for_python/
+param/parameter.py
