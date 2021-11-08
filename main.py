@@ -1,17 +1,21 @@
 import sys
 import os
-import platform
-import db.kueri_db as db
+from db.kueri_db import DatabaseLokal, Database
 
 from modules import *
 from widgets import *
 os.environ["QT_FONT_DPI"] = "96"
 
 widgets = None
+db_lokal = DatabaseLokal()
 
-db_lokal = db.DatabaseLokal()
-db_warehouse = db.Database()
-get_lokasi = print(db_warehouse.get_lokasi())
+if __name__ == '__main__':
+    koneksi = dict(db_lokal.param_koneksi())
+    db_warehouse = Database(koneksi["driver"], koneksi["server"],
+                            koneksi["database"], koneksi["user"], koneksi["password"])
+    print(db_warehouse.get_buying_year())
+    print(db_warehouse.get_approval_code_terpilih(
+        {"Brand": ["ADI", "NIK"], "SBU": ["Fisik"], "BuyingYear": ["2021"]}))
 
 
 class MainWindow(QMainWindow):

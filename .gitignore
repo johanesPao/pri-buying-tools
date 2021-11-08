@@ -3,4 +3,4 @@ __pycache__/
 .pyc
 devel-env/
 .qt_for_python/
-param/parameter.py
+param_koneksi.db
